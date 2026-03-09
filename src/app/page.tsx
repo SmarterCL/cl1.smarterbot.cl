@@ -47,7 +47,7 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <Link href="/" className="flex items-center gap-4 group">
               <Image
-                src="https://rjfcmmzjlguiititkmyh.supabase.co/storage/v1/object/public/DRIVE/logo.jpg"
+                src="/images/logo.jpg"
                 alt="SmarterOS Logo"
                 width={48}
                 height={48}
@@ -103,7 +103,7 @@ export default function Home() {
             <div className="absolute -inset-2 bg-gradient-to-r from-[#0ea5e9] via-[#6366f1] to-[#8b5cf6] rounded-3xl blur-2xl opacity-20 group-hover:opacity-40 transition duration-1000"></div>
             <div className="relative bg-[#0d1420]/80 rounded-2xl overflow-hidden border border-white/10 backdrop-blur-sm">
               <Image
-                src="https://rjfcmmzjlguiititkmyh.supabase.co/storage/v1/object/public/DRIVE/smarteros_box_v1_mockup_1772989966038.png"
+                src="/images/smarteros_box_mockup.png"
                 alt="SmarterOS Box Mockup"
                 width={1200}
                 height={675}
@@ -143,7 +143,7 @@ export default function Home() {
             <div className="bg-[#1f2937] px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4 border-t border-[#1e293b]">
               <div className="flex items-center gap-4">
                 <Image
-                  src="https://rjfcmmzjlguiititkmyh.supabase.co/storage/v1/object/public/DRIVE/cortical.png"
+                  src="/images/cortical.png"
                   alt="Cortical Labs"
                   width={1156}
                   height={352}
