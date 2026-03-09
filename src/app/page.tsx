@@ -135,8 +135,8 @@ export default function Home() {
             </div>
             <iframe
               className="w-full aspect-video"
-              src="https://www.youtube.com/embed/LY5NouKyXg4?rel=0"
-              title="Cortical Labs CL1 Demo"
+              src="https://www.youtube.com/embed/yRV8fSw6HaE?rel=0"
+              title="Cortical Labs Cloud Demo"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
