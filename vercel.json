@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd cl1-cloud && npm install && npm run build",
+  "outputDirectory": "cl1-cloud/.next",
+  "installCommand": "cd cl1-cloud && npm install"
+}
