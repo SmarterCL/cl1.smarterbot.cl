@@ -47,7 +47,7 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <Link href="/" className="flex items-center gap-4 group">
               <Image
-                src="/images/logo.jpg"
+                src="https://rjfcmmzjlguiititkmyh.supabase.co/storage/v1/object/public/DRIVE/logo.jpg"
                 alt="SmarterOS Logo"
                 width={48}
                 height={48}
@@ -143,7 +143,7 @@ export default function Home() {
             <div className="bg-[#1f2937] px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4 border-t border-[#1e293b]">
               <div className="flex items-center gap-4">
                 <Image
-                  src="/images/cortical.png"
+                  src="https://rjfcmmzjlguiititkmyh.supabase.co/storage/v1/object/public/DRIVE/cortical.png"
                   alt="Cortical Labs"
                   width={1156}
                   height={352}
