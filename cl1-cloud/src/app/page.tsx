@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -28,17 +29,25 @@ export default function Home() {
       <header className="header-gradient border-b border-[#1e293b]">
         <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-[#0ea5e9] to-[#6366f1] rounded-xl flex items-center justify-center">
-              <span className="text-[#0a0f1a] font-bold text-xl">CL</span>
-            </div>
-            <div>
-              <span className="text-xl font-bold text-white">SMARTER</span>
-              <span className="text-xl font-bold text-[#0ea5e9]">OS</span>
-            </div>
+            <Link href="/" className="flex items-center gap-4">
+              <img
+                src="https://rjfcmmzjlguiititkmyh.supabase.co/storage/v1/object/public/DRIVE/logo.jpg"
+                alt="SmarterOS Logo"
+                className="w-12 h-12 rounded-xl object-cover border border-[#1e293b]"
+              />
+              <div>
+                <span className="text-xl font-bold text-white uppercase tracking-tight">SMARTER</span>
+                <span className="text-xl font-bold text-[#0ea5e9]">OS</span>
+              </div>
+            </Link>
           </div>
           <nav className="hidden md:flex gap-8">
             <a href="#demo" className="text-[#94a3b8] hover:text-[#0ea5e9] transition-colors">Demo</a>
             <a href="#pricing" className="text-[#94a3b8] hover:text-[#0ea5e9] transition-colors">Planes</a>
+            <a href="/comparativa-hardware" className="text-[#0ea5e9] font-semibold hover:text-white transition-colors flex items-center gap-1">
+              Hardware
+              <span className="bg-[#0ea5e9]/10 text-[10px] px-1.5 py-0.5 rounded border border-[#0ea5e9]/20">NUEVO</span>
+            </a>
             <a href="#reserve" className="text-[#94a3b8] hover:text-[#0ea5e9] transition-colors">Reservar</a>
           </nav>
           <a href="https://www.smarterbot.cl" className="text-sm text-[#94a3b8] hover:text-[#0ea5e9]">
@@ -83,6 +92,19 @@ export default function Home() {
               <div className="text-[#94a3b8]">Uptime</div>
             </div>
           </div>
+
+          <div className="mt-16 max-w-4xl mx-auto">
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#0ea5e9] to-[#6366f1] rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+              <div className="relative bg-[#111827] rounded-xl overflow-hidden border border-[#1e293b]">
+                <img
+                  src="/smarteros_box_v1_mockup_1772989966038.png"
+                  alt="SmarterOS Box Mockup"
+                  className="w-full rounded-xl object-cover hover:scale-[1.02] transition-transform duration-700"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -111,6 +133,25 @@ export default function Home() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
+            <div className="bg-[#1f2937] px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4 border-t border-[#1e293b]">
+              <div className="flex items-center gap-4">
+                <img
+                  src="https://rjfcmmzjlguiititkmyh.supabase.co/storage/v1/object/public/DRIVE/cortical.png"
+                  alt="Cortical Labs"
+                  className="h-10 opacity-80 hover:opacity-100 transition-opacity"
+                />
+                <span className="text-sm text-[#94a3b8]">Powered by Cortical Labs Technology</span>
+              </div>
+              <a
+                href="https://corticallabs.com/cloud"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#0ea5e9] text-sm font-semibold hover:underline flex items-center gap-2"
+              >
+                Learn more about Neural Cloud
+                <span>→</span>
+              </a>
+            </div>
             <div className="p-6 bg-[#1f2937] border-t border-[#1e293b]">
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="flex gap-4">
@@ -354,7 +395,7 @@ export default function Home() {
               </div>
               <h3 className="text-2xl font-bold mb-4">¡Reserva Exitosa!</h3>
               <p className="text-[#94a3b8]">
-                Gracias por tu interés en CL1 Cloud. Te hemos enviado un email de confirmación. 
+                Gracias por tu interés en CL1 Cloud. Te hemos enviado un email de confirmación.
                 Nuestro equipo te contactará en las próximas 24 horas.
               </p>
             </div>
