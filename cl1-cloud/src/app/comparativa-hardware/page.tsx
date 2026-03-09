@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function HardwareComparison() {
@@ -19,9 +20,11 @@ export default function HardwareComparison() {
                 <header className="sticky top-0 z-50 backdrop-blur-md bg-[#0a0f1a]/80 border-b border-white/5">
                     <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
                         <Link href="/" className="flex items-center gap-3 group">
-                            <img
+                            <Image
                                 src="https://rjfcmmzjlguiititkmyh.supabase.co/storage/v1/object/public/DRIVE/logo.jpg"
                                 alt="SmarterOS Logo"
+                                width={40}
+                                height={40}
                                 className="w-10 h-10 rounded-lg object-cover border border-white/10 transition-transform group-hover:scale-110"
                             />
                             <span className="text-xl font-bold tracking-tight uppercase">SMARTER<span className="text-[#0ea5e9]">OS</span></span>

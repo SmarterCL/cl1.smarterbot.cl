@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -30,9 +31,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
           <div className="flex items-center gap-4">
             <Link href="/" className="flex items-center gap-4">
-              <img
+              <Image
                 src="https://rjfcmmzjlguiititkmyh.supabase.co/storage/v1/object/public/DRIVE/logo.jpg"
                 alt="SmarterOS Logo"
+                width={48}
+                height={48}
                 className="w-12 h-12 rounded-xl object-cover border border-[#1e293b]"
               />
               <div>
@@ -41,13 +44,9 @@ export default function Home() {
               </div>
             </Link>
           </div>
-          <nav className="hidden md:flex gap-8">
+            <nav className="hidden md:flex gap-8">
             <a href="#demo" className="text-[#94a3b8] hover:text-[#0ea5e9] transition-colors">Demo</a>
             <a href="#pricing" className="text-[#94a3b8] hover:text-[#0ea5e9] transition-colors">Planes</a>
-            <a href="/comparativa-hardware" className="text-[#0ea5e9] font-semibold hover:text-white transition-colors flex items-center gap-1">
-              Hardware
-              <span className="bg-[#0ea5e9]/10 text-[10px] px-1.5 py-0.5 rounded border border-[#0ea5e9]/20">NUEVO</span>
-            </a>
             <a href="#reserve" className="text-[#94a3b8] hover:text-[#0ea5e9] transition-colors">Reservar</a>
           </nav>
           <a href="https://www.smarterbot.cl" className="text-sm text-[#94a3b8] hover:text-[#0ea5e9]">
@@ -97,9 +96,11 @@ export default function Home() {
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-[#0ea5e9] to-[#6366f1] rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
               <div className="relative bg-[#111827] rounded-xl overflow-hidden border border-[#1e293b]">
-                <img
+                <Image
                   src="/smarteros_box_v1_mockup_1772989966038.png"
                   alt="SmarterOS Box Mockup"
+                  width={800}
+                  height={450}
                   className="w-full rounded-xl object-cover hover:scale-[1.02] transition-transform duration-700"
                 />
               </div>
@@ -135,9 +136,11 @@ export default function Home() {
             ></iframe>
             <div className="bg-[#1f2937] px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4 border-t border-[#1e293b]">
               <div className="flex items-center gap-4">
-                <img
+                <Image
                   src="https://rjfcmmzjlguiititkmyh.supabase.co/storage/v1/object/public/DRIVE/cortical.png"
                   alt="Cortical Labs"
+                  width={100}
+                  height={40}
                   className="h-10 opacity-80 hover:opacity-100 transition-opacity"
                 />
                 <span className="text-sm text-[#94a3b8]">Powered by Cortical Labs Technology</span>
