@@ -97,7 +97,7 @@ export default function Home() {
               <div className="absolute -inset-1 bg-gradient-to-r from-[#0ea5e9] to-[#6366f1] rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
               <div className="relative bg-[#111827] rounded-xl overflow-hidden border border-[#1e293b]">
                 <Image
-                  src="/smarteros_box_v1_mockup_1772989966038.png"
+                  src="https://rjfcmmzjlguiititkmyh.supabase.co/storage/v1/object/public/DRIVE/smarteros_box_v1_mockup_1772989966038.png"
                   alt="SmarterOS Box Mockup"
                   width={800}
                   height={450}
