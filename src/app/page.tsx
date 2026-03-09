@@ -14,10 +14,22 @@ export default function Home() {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Reserva:", formData);
-    setSubmitted(true);
+    try {
+      const response = await fetch('/api/reserve', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        setSubmitted(true);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -25,18 +37,21 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen grid-pattern">
+    <div className="min-h-screen">
+      {/* Background Decor */}
+      <div className="fixed inset-0 neural-hero -z-10 opacity-30"></div>
+
       {/* Header */}
-      <header className="header-gradient border-b border-[#1e293b]">
+      <header className="header-gradient border-b border-white/10 sticky top-0 z-50 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
           <div className="flex items-center gap-4">
-            <Link href="/" className="flex items-center gap-4">
+            <Link href="/" className="flex items-center gap-4 group">
               <Image
                 src="https://rjfcmmzjlguiititkmyh.supabase.co/storage/v1/object/public/DRIVE/logo.jpg"
                 alt="SmarterOS Logo"
                 width={48}
                 height={48}
-                className="w-12 h-12 rounded-xl object-cover border border-[#1e293b]"
+                className="w-12 h-12 rounded-xl object-cover border border-white/10 transition-transform group-hover:scale-110"
               />
               <div>
                 <span className="text-xl font-bold text-white uppercase tracking-tight">SMARTER</span>
@@ -44,66 +59,57 @@ export default function Home() {
               </div>
             </Link>
           </div>
-            <nav className="hidden md:flex gap-8">
-            <a href="#demo" className="text-[#94a3b8] hover:text-[#0ea5e9] transition-colors">Demo</a>
-            <a href="#pricing" className="text-[#94a3b8] hover:text-[#0ea5e9] transition-colors">Planes</a>
-            <a href="#reserve" className="text-[#94a3b8] hover:text-[#0ea5e9] transition-colors">Reservar</a>
+          <nav className="hidden md:flex gap-8">
+            <Link href="/comparativa-hardware" className="relative text-white/60 hover:text-[#0ea5e9] transition-colors">
+              Comparar Placas
+              <span className="absolute -top-3 -right-6 px-1.5 py-0.5 bg-red-500 text-[8px] font-bold text-white rounded-full">NUEVO</span>
+            </Link>
+            <a href="#demo" className="text-white/60 hover:text-[#0ea5e9] transition-colors">Tecnología</a>
+            <a href="#pricing" className="text-white/60 hover:text-[#0ea5e9] transition-colors">Planes</a>
+            <a href="#reserve" className="text-white/60 hover:text-[#0ea5e9] transition-colors">Reservar</a>
           </nav>
-          <a href="https://www.smarterbot.cl" className="text-sm text-[#94a3b8] hover:text-[#0ea5e9]">
+          <a href="https://www.smarterbot.cl" className="text-sm text-white/40 hover:text-[#0ea5e9]">
             Volver a SmarterOS
           </a>
         </div>
       </header>
 
       {/* Hero */}
-      <section className="py-20 px-6">
+      <section className="py-24 px-6 relative">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-[#0ea5e9] to-[#6366f1] bg-clip-text text-transparent">
-              CL1 Cloud
+          <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-sm">
+            <span className="text-[#0ea5e9] text-xs font-bold tracking-widest uppercase">Del Bit al Átomo • 2026</span>
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight tracking-tight">
+            <span className="bg-gradient-to-r from-[#0ea5e9] via-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
+              Cortical Cloud
             </span>
             <br />
-            <span className="text-white">Computación Neural</span>
+            <span className="text-white">Cómputo Biológico</span>
           </h1>
-          <p className="text-xl text-[#94a3b8] max-w-2xl mx-auto mb-10">
-            La plataforma de computación neural más avanzada. Ejecuta modelos de IA con células cerebrales humanas reales.
+          <p className="text-xl text-white/50 max-w-2xl mx-auto mb-12 leading-relaxed">
+            Sé uno de los primeros desarrolladores del mundo en experimentar y construir sobre la CL1 desde cualquier lugar. Nuestra computadora biológica requiere menos energía y datos que los sistemas tradicionales, habilitando una nueva era de descubrimientos.
           </p>
           <div className="flex justify-center gap-6 flex-wrap">
-            <a href="#reserve" className="btn-primary px-8 py-4 rounded-xl text-white font-semibold inline-block">
-              Reservar Acceso
+            <a href="#reserve" className="btn-primary px-10 py-4 rounded-full text-white font-semibold inline-block">
+              Solicitar Acceso
             </a>
-            <a href="#demo" className="btn-secondary px-8 py-4 rounded-xl text-[#0ea5e9] font-semibold inline-block">
-              Ver Demo
+            <a href="#demo" className="btn-secondary px-10 py-4 rounded-full text-[#0ea5e9] font-semibold inline-block border-white/10 hover:bg-white/5">
+              Ver Demo Local
             </a>
           </div>
 
-          <div className="flex justify-center gap-16 mt-16 flex-wrap">
-            <div>
-              <div className="text-4xl font-bold text-[#0ea5e9]">10K+</div>
-              <div className="text-[#94a3b8]">Neuronas CL1</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-[#0ea5e9]">50ms</div>
-              <div className="text-[#94a3b8]">Latencia</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-[#0ea5e9]">99.9%</div>
-              <div className="text-[#94a3b8]">Uptime</div>
-            </div>
-          </div>
-
-          <div className="mt-16 max-w-4xl mx-auto">
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#0ea5e9] to-[#6366f1] rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative bg-[#111827] rounded-xl overflow-hidden border border-[#1e293b]">
-                <Image
-                  src="https://rjfcmmzjlguiititkmyh.supabase.co/storage/v1/object/public/DRIVE/smarteros_box_v1_mockup_1772989966038.png"
-                  alt="SmarterOS Box Mockup"
-                  width={800}
-                  height={450}
-                  className="w-full rounded-xl object-cover hover:scale-[1.02] transition-transform duration-700"
-                />
-              </div>
+          <div className="mt-20 max-w-4xl mx-auto relative group">
+            <div className="absolute -inset-2 bg-gradient-to-r from-[#0ea5e9] via-[#6366f1] to-[#8b5cf6] rounded-3xl blur-2xl opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+            <div className="relative bg-[#0d1420]/80 rounded-2xl overflow-hidden border border-white/10 backdrop-blur-sm">
+              <Image
+                src="https://rjfcmmzjlguiititkmyh.supabase.co/storage/v1/object/public/DRIVE/smarteros_box_v1_mockup_1772989966038.png"
+                alt="SmarterOS Box Mockup"
+                width={1200}
+                height={675}
+                priority
+                className="w-full h-auto object-cover hover:scale-[1.01] transition-transform duration-1000"
+              />
             </div>
           </div>
         </div>
