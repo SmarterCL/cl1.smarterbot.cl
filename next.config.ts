@@ -20,6 +20,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'rjfcmmzjlguiititkmyh.supabase.co',
       },
+      {
+        protocol: 'https',
+        hostname: 'corticallabs.com',
+      },
     ],
     formats: ['image/avif', 'image/webp'],
     qualities: [75, 85],

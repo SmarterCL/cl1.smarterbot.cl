@@ -306,111 +306,52 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Reservation Form */}
-      <section id="reserve" className="py-20 px-6 bg-[#111827]">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">Reserva tu Acceso</h2>
-          <p className="text-[#94a3b8] text-center mb-10">
-            Completa el formulario y únete a la revolución de la computación neural
-          </p>
+      {/* Sign Up Section (Mockup Inspiration) */}
+      <section id="reserve" className="py-24 px-6 bg-[#f6f5f2] text-[#000000]">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 text-center md:text-left">
+          <div className="flex-1 flex justify-center md:justify-end">
+            <Image
+              src="https://corticallabs.com/images/cloud-3d-logo.jpg"
+              alt="Cortical Cloud 3D Logo"
+              width={400}
+              height={400}
+              className="w-full max-w-[400px] h-auto rounded-3xl"
+            />
+          </div>
+          <div className="flex-1">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
+              Regístrate en <br />
+              Cortical Cloud
+            </h2>
+            <p className="text-xl text-black/60 mb-10 max-w-md">
+              Sé uno de los primeros en desplegar código en neuronas reales y desbloquea el futuro.
+            </p>
 
-          {!submitted ? (
-            <form onSubmit={handleSubmit} className="card-gradient border border-[#1e293b] rounded-2xl p-8">
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label className="block text-sm font-semibold text-[#94a3b8] mb-2 uppercase tracking-wide">
-                    Nombre Completo
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Juan Pérez"
-                    className="input-field w-full px-5 py-4 rounded-xl text-white placeholder-[#64748b]"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-[#94a3b8] mb-2 uppercase tracking-wide">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="juan@empresa.com"
-                    className="input-field w-full px-5 py-4 rounded-xl text-white placeholder-[#64748b]"
-                  />
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label className="block text-sm font-semibold text-[#94a3b8] mb-2 uppercase tracking-wide">
-                    Empresa
-                  </label>
-                  <input
-                    type="text"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    placeholder="Tu empresa"
-                    className="input-field w-full px-5 py-4 rounded-xl text-white placeholder-[#64748b]"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-[#94a3b8] mb-2 uppercase tracking-wide">
-                    Plan
-                  </label>
-                  <select
-                    name="plan"
-                    value={formData.plan}
-                    onChange={handleChange}
-                    className="input-field w-full px-5 py-4 rounded-xl text-white"
-                  >
-                    <option value="starter">Starter - $99.000/mes</option>
-                    <option value="pro">Pro - $399.000/mes</option>
-                    <option value="enterprise">Enterprise - Custom</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="mb-8">
-                <label className="block text-sm font-semibold text-[#94a3b8] mb-2 uppercase tracking-wide">
-                  Caso de Uso
-                </label>
-                <textarea
-                  name="use_case"
-                  value={formData.use_case}
+            {!submitted ? (
+              <div className="flex flex-col gap-4 max-w-sm mx-auto md:mx-0">
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  value={formData.email}
                   onChange={handleChange}
-                  placeholder="Describe cómo planeas usar CL1 Cloud..."
-                  rows={4}
-                  className="input-field w-full px-5 py-4 rounded-xl text-white placeholder-[#64748b] resize-none"
+                  placeholder="Tu correo electrónico"
+                  className="w-full px-6 py-4 rounded-full border border-black/10 bg-white text-black placeholder-black/30 focus:outline-none focus:ring-2 focus:ring-[#0ea5e9]"
                 />
+                <button
+                  onClick={handleSubmit}
+                  className="w-full py-4 rounded-full bg-black text-white font-bold text-lg hover:bg-neutral-800 transition-colors shadow-lg"
+                >
+                  Regístrate Ahora
+                </button>
               </div>
-
-              <button type="submit" className="btn-primary w-full py-4 rounded-xl text-white font-semibold text-lg">
-                Reservar Ahora
-              </button>
-              <p className="text-center text-[#94a3b8] text-sm mt-4">
-                Sin compromiso. Te contactaremos en 24h.
-              </p>
-            </form>
-          ) : (
-            <div className="card-gradient border border-[#1e293b] rounded-2xl p-12 text-center">
-              <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl">
-                ✓
+            ) : (
+              <div className="bg-green-500/10 text-green-700 p-6 rounded-2xl flex items-center gap-4">
+                <span className="text-2xl">✓</span>
+                <p className="font-semibold text-lg">¡Registro recibido! Te contactaremos pronto.</p>
               </div>
-              <h3 className="text-2xl font-bold mb-4">¡Reserva Exitosa!</h3>
-              <p className="text-[#94a3b8]">
-                Gracias por tu interés en CL1 Cloud. Te hemos enviado un email de confirmación.
-                Nuestro equipo te contactará en las próximas 24 horas.
-              </p>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </section>
 
