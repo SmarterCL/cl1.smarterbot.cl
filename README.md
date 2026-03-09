@@ -1,178 +1,36 @@
-# CL1 Node - SmarterOS
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-> Nodo de computación AI para SmarterBot Chile
+## Getting Started
 
-## Arquitectura
-
-```
-                        INTERNET
-                           │
-                    DNS smarterbot.cl
-                           │
-                        CADDY
-              (reverse proxy + SSL)
-                           │
-                      DOCKPLOY
-                           │
-        ┌──────────────────┼──────────────────┐
-        │                  │                  │
-      CL1              MCP CORE            OLLAMA
-   cl1-node          mcp-core           ollama-local
-        │                  │                  │
-        └──────────────────┼──────────────────┘
-                           │
-                      SUPABASE VAULT
-                      (secrets)
-```
-
-## Dominios
-
-| Servicio | Dominio | Puerto |
-|----------|---------|--------|
-| CL1 Node | cl1.smarterbot.cl | 3000 |
-| MCP Core | mcp.smarterbot.cl | 8080 |
-| n8n | n8n.smarterbot.cl | 5678 |
-| Ollama | ollama.smarterbot.cl | 11434 |
-
-## Servicios
-
-### CL1 Node
-Núcleo de procesamiento AI. Gestiona la lógica de negocio y comunicación con otros servicios.
-
-### MCP Core
-Model Context Protocol. Kernel de herramientas para acceso a datos externos (Kaggle, APIs, etc.)
-
-### Redis
-Cache y colas de mensajes para procesamiento asíncrono.
-
-### n8n
-Automatzación de workflows. Conecta servicios y automatiza tareas.
-
-### Ollama
-Inference local (opcional). Modelos de lenguaje locales para procesamiento pesado.
-
-##快速开始
-
-### Prerequisites
-
-- Docker + Docker Compose
-- Acceso a Supabase Vault
-- Dominios configurados en DNS
-
-### Setup
-
-1. **Clonar repositorio**
-```bash
-git clone https://github.com/SmarterCL/cl1.smarterbot.cl.git
-cd cl1.smarterbot.cl
-```
-
-2. **Configurar variables de entorno**
-```bash
-cp env/.env.example env/.env
-# Editar .env con valores de Supabase Vault
-```
-
-3. **Iniciar servicios**
-```bash
-docker compose up -d
-```
-
-4. **Verificar estado**
-```bash
-docker compose ps
-curl https://cl1.smarterbot.cl/health
-```
-
-## Deployment
-
-### Dockploy Pipeline
-
-1. **Push a GitHub** → Trigger webhook en VPS
-2. **Dockploy** ejecuta pull + build
-3. **Secrets** inyectados desde Supabase Vault
-4. **Caddy** provee SSL automáticamente
-
-### Comandos útiles
+First, run the development server:
 
 ```bash
-# Iniciar servicios
-docker compose up -d
-
-# Ver logs
-docker compose logs -f cl1-node
-
-# Reiniciar servicio específico
-docker compose restart cl1-node
-
-# Actualizar código
-git pull origin main
-docker compose up -d --build
-```
-
-## Estructura del Proyecto
-
-```
-cl1.smarterbot.cl/
-├── docker-compose.yml    # Orquestación de servicios
-├── Caddyfile            # Reverse proxy
-├── env/
-│   └── .env.example     # Template de variables
-├── cl1-node/
-│   ├── Dockerfile
-│   ├── package.json
-│   └── src/
-│       ├── index.js
-│       └── config.js
-└── README.md
-```
-
-## Environment Variables
-
-| Variable | Descripción |
-|----------|-------------|
-| `SUPABASE_URL` | URL del proyecto Supabase |
-| `SUPABASE_SERVICE_KEY` | Clave de servicio para Vault |
-| `MCP_API_KEY` | API key para MCP |
-| `N8N_ENCRYPTION_KEY` | Clave de encriptación n8n |
-
-## API Endpoints
-
-### CL1 Node
-- `GET /health` - Health check
-- `POST /webhook` - Receptor de webhooks
-- `GET /status` - Estado del nodo
-
-### MCP Core
-- `POST /query` - Consultas al kernel
-- `GET /tools` - Lista de herramientas disponibles
-
-## Desarrollo
-
-### Ambiente local
-
-```bash
-# Con Docker
-docker compose up -d
-
-# Sin Docker (desarrollo)
-cd cl1-node
-npm install
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-### Agregar nueva herramienta MCP
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-1. Crear tool en `mcp-core/tools/`
-2. Registrar en `mcp-core/registry.json`
-3. Reconstruir imagen: `docker compose build mcp-core`
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Recursos
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-- [Documentación Dockploy](https://dockploy.io)
-- [Guías Caddy](https://caddyserver.com/docs)
-- [n8n Workflows](https://docs.n8n.io)
+## Learn More
 
-## Licencia
+To learn more about Next.js, take a look at the following resources:
 
-MIT © SmarterBot Chile
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

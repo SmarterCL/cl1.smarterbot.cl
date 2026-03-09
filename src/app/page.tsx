@@ -139,9 +139,11 @@ export default function Home() {
                 <Image
                   src="https://rjfcmmzjlguiititkmyh.supabase.co/storage/v1/object/public/DRIVE/cortical.png"
                   alt="Cortical Labs"
-                  width={100}
-                  height={40}
-                  className="h-10 opacity-80 hover:opacity-100 transition-opacity"
+                  width={1156}
+                  height={352}
+                  className="h-10 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                  loading="lazy"
+                  quality={85}
                 />
                 <span className="text-sm text-[#94a3b8]">Powered by Cortical Labs Technology</span>
               </div>
