@@ -118,16 +118,16 @@ export default function Home() {
       {/* Demo Section */}
       <section id="demo" className="py-16 px-6 bg-[#111827]">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">Demo: Células Cerebrales Jugando Doom</h2>
+          <h2 className="text-3xl font-bold text-center mb-4">Demo: El Futuro del Cómputo es Biológico</h2>
           <p className="text-[#94a3b8] text-center mb-10">
-            Observa cómo células cerebrales humanas aprenden a jugar Doom mediante reinforcement learning
+            Descubre cómo Cortical Labs está integrando neuronas reales con silicio para crear la CL1
           </p>
 
           <div className="rounded-2xl overflow-hidden border border-[#1e293b]">
             <div className="bg-gradient-to-r from-[#1f2937] to-[#111827] px-6 py-4 flex justify-between items-center border-b border-[#1e293b]">
               <div className="flex items-center gap-3">
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse-slow"></div>
-                <span className="font-semibold">doom-neuron Live Demo</span>
+                <span className="font-semibold">Cortical Labs • CL1 Demo</span>
               </div>
               <span className="bg-gradient-to-r from-[#0ea5e9] to-[#6366f1] text-[#0a0f1a] px-4 py-1 rounded-full text-sm font-semibold">
                 CL1 Neural Interface
@@ -135,8 +135,8 @@ export default function Home() {
             </div>
             <iframe
               className="w-full aspect-video"
-              src="https://www.youtube.com/embed/2ejt6eT3NtE?rel=0"
-              title="DOOM CL1 Demo"
+              src="https://www.youtube.com/embed/LY5NouKyXg4?rel=0"
+              title="Cortical Labs CL1 Demo"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
