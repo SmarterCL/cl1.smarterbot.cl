@@ -1,0 +1,160 @@
+version: '3.8'
+
+# =============================================================================
+# SmarterOS CL1 Node - Docker Compose
+# =============================================================================
+# Servicios desplegados en VPS con Dockploy
+# Dominios: cl1.smarterbot.cl, mcp.smarterbot.cl, n8n.smarterbot.cl
+# =============================================================================
+
+services:
+  
+  # ---------------------------------------------------------------------------
+  # Caddy - Reverse Proxy con SSL automático
+  # ---------------------------------------------------------------------------
+  caddy:
+    image: caddy:alpine
+    container_name: caddy-gateway
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - smarter-net
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:80/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ---------------------------------------------------------------------------
+  # CL1 Node - Núcleo de procesamiento AI
+  # ---------------------------------------------------------------------------
+  cl1-node:
+    build: 
+      context: ./cl1-node
+      dockerfile: Dockerfile
+    container_name: cl1-node
+    restart: always
+    environment:
+      - PORT=3000
+      - REDIS_HOST=redis
+      - NODE_ENV=production
+      - TZ=America/Santiago
+    env_file:
+      - ./env/.env
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - smarter-net
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ---------------------------------------------------------------------------
+  # MCP Core - Herramientas y kernel
+  # ---------------------------------------------------------------------------
+  mcp-core:
+    image: smarter/mcp-core:latest
+    container_name: mcp-core
+    restart: always
+    environment:
+      - PORT=8080
+      - MCP_API_KEY=${MCP_API_KEY}
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_SERVICE_KEY=${SUPABASE_SERVICE_KEY}
+    env_file:
+      - ./env/.env
+    networks:
+      - smarter-net
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ---------------------------------------------------------------------------
+  # Redis - Cache y colas de mensajes
+  # ---------------------------------------------------------------------------
+  redis:
+    image: redis:7-alpine
+    container_name: redis-cache
+    restart: always
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    networks:
+      - smarter-net
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ---------------------------------------------------------------------------
+  # n8n - Automatización de workflows
+  # ---------------------------------------------------------------------------
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: n8n-workflow
+    restart: always
+    environment:
+      - WEBHOOK_URL=https://n8n.smarterbot.cl
+      - N8N_HOST=n8n.smarterbot.cl
+      - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=${N8N_BASIC_AUTH_USER}
+      - N8N_BASIC_AUTH_PASSWORD=${N8N_BASIC_AUTH_PASSWORD}
+    env_file:
+      - ./env/.env
+    volumes:
+      - n8n_data:/home/node/.n8n
+networks:
+      - smarter-net
+    depends_on:
+      - redis
+
+  # ---------------------------------------------------------------------------
+  # Ollama - Inference local (opcional, si no está en Mac local)
+  # ---------------------------------------------------------------------------
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama-local
+    restart: always
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - smarter-net
+    deploy:
+      resources:
+        limits:
+          # GPUs: "all" or specific device
+          # memory: 8G
+          cpus: '4.0'
+          memory: 8G
+
+# =============================================================================
+# Volumes persistentes
+# =============================================================================
+volumes:
+  caddy_data:
+  caddy_config:
+  redis_data:
+  n8n_data:
+  ollama_data:
+
+# =============================================================================
+# Red interna
+# =============================================================================
+networks:
+  smarter-net:
+    driver: bridge
