@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import ContactModal from "@/components/ContactModal";
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ export default function Home() {
     use_case: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -66,6 +68,14 @@ export default function Home() {
             </Link>
             <a href="#demo" className="text-white/60 hover:text-[#0ea5e9] transition-colors">Tecnología</a>
             <a href="#pricing" className="text-white/60 hover:text-[#0ea5e9] transition-colors">Planes</a>
+            <Link href="/terminos" className="text-white/60 hover:text-[#0ea5e9] transition-colors">Términos</Link>
+            <Link href="/privacidad" className="text-white/60 hover:text-[#0ea5e9] transition-colors">Privacidad</Link>
+            <button
+              onClick={() => setIsContactOpen(true)}
+              className="text-white/60 hover:text-[#0ea5e9] transition-colors cursor-pointer"
+            >
+              Contacto
+            </button>
             <a href="#reserve" className="text-white/60 hover:text-[#0ea5e9] transition-colors">Reservar</a>
           </nav>
           <a href="https://www.smarterbot.cl" className="text-sm text-white/40 hover:text-[#0ea5e9]">
@@ -298,9 +308,12 @@ export default function Home() {
                   <span className="text-green-500">✓</span> Opción on-premise
                 </li>
               </ul>
-              <a href="#reserve" className="btn-secondary block text-center py-3 rounded-xl font-semibold">
+              <button
+                onClick={() => setIsContactOpen(true)}
+                className="btn-secondary w-full block text-center py-3 rounded-xl font-semibold"
+              >
                 Contactar
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -363,14 +376,19 @@ export default function Home() {
             <span className="text-lg font-bold text-[#0ea5e9]">SMARTEROS</span>
           </div>
           <div className="flex gap-8 text-sm text-[#94a3b8]">
-            <a href="https://www.smarterbot.cl/terminos" className="hover:text-[#0ea5e9]">Términos</a>
-            <a href="https://www.smarterbot.cl/privacidad" className="hover:text-[#0ea5e9]">Privacidad</a>
-            <a href="mailto:hola@smarterbot.cl" className="hover:text-[#0ea5e9]">Contacto</a>
+            <Link href="/terminos" className="hover:text-[#0ea5e9]">Términos</Link>
+            <Link href="/privacidad" className="hover:text-[#0ea5e9]">Privacidad</Link>
+            <button onClick={() => setIsContactOpen(true)} className="hover:text-[#0ea5e9]">Contacto</button>
           </div>
           <div className="text-sm text-[#94a3b8]">
             © 2026 Smarter SPA. Todos los derechos reservados.
           </div>
         </div>
+
+        <ContactModal
+          isOpen={isContactOpen}
+          onClose={() => setIsContactOpen(false)}
+        />
       </footer>
     </div>
   );
