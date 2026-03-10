@@ -9,14 +9,14 @@ export default function Privacidad() {
                     <Link href="/" className="flex items-center gap-4 group">
                         <Image
                             src="https://rjfcmmzjlguiititkmyh.supabase.co/storage/v1/object/public/DRIVE/logo.jpg"
-                            alt="SmarterOS Logo"
+                            alt="Cortical Labs Cloud Logo"
                             width={40}
                             height={40}
                             className="w-10 h-10 rounded-lg object-cover border border-white/10"
                         />
                         <div>
-                            <span className="text-lg font-bold text-white uppercase tracking-tight">SMARTER</span>
-                            <span className="text-lg font-bold text-[#0ea5e9]">OS</span>
+                            <span className="text-lg font-bold text-white uppercase tracking-tight">CORTICAL</span>
+                            <span className="text-lg font-bold text-[#0ea5e9]">CLOUD</span>
                         </div>
                     </Link>
                     <Link href="/" className="text-sm text-white/40 hover:text-[#0ea5e9] transition-colors">

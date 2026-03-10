@@ -22,12 +22,12 @@ export default function HardwareComparison() {
                         <Link href="/" className="flex items-center gap-3 group">
                             <Image
                                 src="https://rjfcmmzjlguiititkmyh.supabase.co/storage/v1/object/public/DRIVE/logo.jpg"
-                                alt="SmarterOS Logo"
+                                alt="Cortical Labs Cloud Logo"
                                 width={40}
                                 height={40}
                                 className="w-10 h-10 rounded-lg object-cover border border-white/10 transition-transform group-hover:scale-110"
                             />
-                            <span className="text-xl font-bold tracking-tight uppercase">SMARTER<span className="text-[#0ea5e9]">OS</span></span>
+                            <span className="text-xl font-bold tracking-tight uppercase">CORTICAL<span className="text-[#0ea5e9]">CLOUD</span></span>
                         </Link>
                         <nav className="flex items-center gap-6">
                             <Link href="/" className="text-sm text-white/60 hover:text-white transition-colors">Volver al Inicio</Link>
@@ -202,14 +202,14 @@ export default function HardwareComparison() {
                                 <div className="w-12 h-12 rounded-xl bg-[#0ea5e9]/20 flex items-center justify-center text-[#0ea5e9] mb-6 text-2xl">⚡</div>
                                 <h4 className="text-xl font-bold mb-4">Costo de Oportunidad (Software)</h4>
                                 <p className="text-white/60 leading-relaxed text-sm">
-                                    La <span className="text-white">Pi 5 Plus</span> ya tiene imágenes estables. Usarla hoy ahorra decenas de horas de troubleshooting en drivers de NPU o aceleración de video. Es ideal para despliegues inmediatos de SmarterOS.
+                                    La <span className="text-white">Pi 5 Plus</span> ya tiene imágenes estables. Usarla hoy ahorra decenas de horas de troubleshooting en drivers de NPU o aceleración de video. Es ideal para despliegues inmediatos de Cortical Cloud.
                                 </p>
                             </div>
                             <div className="p-8 rounded-3xl border border-white/10 bg-white/5 hover:border-[#6366f1]/50 transition-colors">
                                 <div className="w-12 h-12 rounded-xl bg-[#6366f1]/20 flex items-center justify-center text-[#6366f1] mb-6 text-2xl">🧠</div>
                                 <h4 className="text-xl font-bold mb-4">Factor IA (El Gran Salto)</h4>
                                 <p className="text-white/60 leading-relaxed text-sm">
-                                    La <span className="text-[#6366f1]">Pi 6 Plus</span> ofrece 45 TOPS. Si la arquitectura SmarterOS procesará LLMs locales o YOLO pesado, el costo extra se paga solo al evitar facturas de APIs externas como OpenAI o Anthropic.
+                                    La <span className="text-[#6366f1]">Pi 6 Plus</span> ofrece 45 TOPS. Si la arquitectura Cortical Cloud procesará LLMs locales o YOLO pesado, el costo extra se paga solo al evitar facturas de APIs externas como OpenAI o Anthropic.
                                 </p>
                             </div>
                         </div>

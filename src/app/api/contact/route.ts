@@ -14,7 +14,7 @@ export async function POST(request: Request) {
 
     const auth = btoa(`api:${API_KEY}`);
     const mailData = new URLSearchParams();
-    mailData.append('from', `SmarterOS Contact <postmaster@${DOMAIN}>`);
+    mailData.append('from', `Cortical Cloud Contact <postmaster@${DOMAIN}>`);
     mailData.append('to', CONTACT_EMAIL);
     mailData.append('subject', `Nuevo Mensaje de Contacto - ${formData.name}`);
     mailData.append('text', `

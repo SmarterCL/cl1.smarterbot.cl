@@ -11,12 +11,12 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://cl1.smarterbot.cl'),
   title: {
-    default: 'CL1 Cloud - SmarterOS | Computación Neural con Células Reales',
+    default: 'Cortical Labs Cloud | Computación Neural con Células Reales',
     template: '%s | CL1 Cloud',
   },
   description: 'Despliega tu código en neuronas biológicas. CL1 Cloud es la plataforma líder en Bio-IA y computación neural para empresas y desarrolladores.',
   keywords: [
-    'CL1 Cloud', 'SmarterOS', 'computación neural', 'bio-IA', 'neuronas biológicas',
+    'CL1 Cloud', 'Cortical Labs', 'computación neural', 'bio-IA', 'neuronas biológicas',
     'inteligencia artificial biológica', 'Smarter SPA', 'CL1 interface', 'neural computing Chile'
   ],
   authors: [{ name: 'Smarter SPA' }],
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'es_CL',
     url: 'https://cl1.smarterbot.cl',
-    siteName: 'CL1 Cloud - SmarterOS',
+    siteName: 'Cortical Labs Cloud',
     title: 'CL1 Cloud - Cómputo Biológico de Próxima Generación',
     description: 'La primera nube de computación neural basada en células cerebrales humanas. Eficiencia y aprendizaje biológico escalar.',
     images: [
@@ -49,13 +49,13 @@ export const metadata: Metadata = {
         url: 'https://rjfcmmzjlguiititkmyh.supabase.co/storage/v1/object/public/DRIVE/logo.jpg',
         width: 1200,
         height: 630,
-        alt: 'CL1 Cloud SmarterOS',
+        alt: 'Cortical Labs Cloud',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CL1 Cloud - SmarterOS',
+    title: 'Cortical Labs Cloud',
     description: 'Computación neural con células cerebrales humanas. El futuro de la IA.',
     images: ['https://rjfcmmzjlguiititkmyh.supabase.co/storage/v1/object/public/DRIVE/logo.jpg'],
   },

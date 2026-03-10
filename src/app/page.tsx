@@ -50,14 +50,14 @@ export default function Home() {
             <Link href="/" className="flex items-center gap-4 group">
               <Image
                 src="https://rjfcmmzjlguiititkmyh.supabase.co/storage/v1/object/public/DRIVE/logo.jpg"
-                alt="SmarterOS Logo"
+                alt="Cortical Labs Cloud Logo"
                 width={48}
                 height={48}
                 className="w-12 h-12 rounded-xl object-cover border border-white/10 transition-transform group-hover:scale-110"
               />
               <div>
-                <span className="text-xl font-bold text-white uppercase tracking-tight">SMARTER</span>
-                <span className="text-xl font-bold text-[#0ea5e9]">OS</span>
+                <span className="text-xl font-bold text-white uppercase tracking-tight">CORTICAL</span>
+                <span className="text-xl font-bold text-[#0ea5e9]">CLOUD</span>
               </div>
             </Link>
           </div>
@@ -79,7 +79,7 @@ export default function Home() {
             <a href="#reserve" className="text-white/60 hover:text-[#0ea5e9] transition-colors">Reservar</a>
           </nav>
           <a href="https://www.smarterbot.cl" className="text-sm text-white/40 hover:text-[#0ea5e9]">
-            Volver a SmarterOS
+            Volver a Smarter SPA
           </a>
         </div>
       </header>
@@ -113,8 +113,8 @@ export default function Home() {
             <div className="absolute -inset-2 bg-gradient-to-r from-[#0ea5e9] via-[#6366f1] to-[#8b5cf6] rounded-3xl blur-2xl opacity-20 group-hover:opacity-40 transition duration-1000"></div>
             <div className="relative bg-[#0d1420]/80 rounded-2xl overflow-hidden border border-white/10 backdrop-blur-sm shadow-2xl">
               <Image
-                src="/images/smarteros_box_mockup.png"
-                alt="SmarterOS Box Mockup"
+                src="/images/cl1_cloud_rack.png"
+                alt="Cortical Labs CL1 Neural Computer Rack"
                 width={1200}
                 height={675}
                 priority
@@ -373,7 +373,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-3">
             <span className="text-lg font-bold text-white">CL1</span>
-            <span className="text-lg font-bold text-[#0ea5e9]">SMARTEROS</span>
+            <span className="text-lg font-bold text-[#0ea5e9]">CORTICAL CLOUD</span>
           </div>
           <div className="flex gap-8 text-sm text-[#94a3b8]">
             <Link href="/terminos" className="hover:text-[#0ea5e9]">Términos</Link>
