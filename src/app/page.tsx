@@ -90,15 +90,15 @@ export default function Home() {
           <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-sm">
             <span className="text-[#0ea5e9] text-xs font-bold tracking-widest uppercase">Del Bit al Átomo • 2026</span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 sm:mb-8 leading-tight tracking-tight">
             <span className="bg-gradient-to-r from-[#0ea5e9] via-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
               Cortical Cloud
             </span>
             <br />
             <span className="text-white">Cómputo Biológico</span>
           </h1>
-          <p className="text-xl text-white/50 max-w-2xl mx-auto mb-12 leading-relaxed">
-            Sé uno de los primeros desarrolladores del mundo en experimentar y construir sobre la CL1 desde cualquier lugar. Nuestra computadora biológica requiere menos energía y datos que los sistemas tradicionales, habilitando una nueva era de descubrimientos.
+          <p className="text-lg sm:text-xl text-white/50 max-w-2xl mx-auto mb-10 sm:mb-12 leading-relaxed px-4">
+            Sé uno de los primeros desarrolladores del mundo en construir sobre la CL1. Nuestra computadora biológica requiere menos energía que los sistemas tradicionales, habilitando una nueva era.
           </p>
           <div className="flex justify-center gap-6 flex-wrap">
             <a href="#reserve" className="btn-primary px-10 py-4 rounded-full text-white font-semibold inline-block">
@@ -109,16 +109,16 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="mt-20 max-w-4xl mx-auto relative group">
+          <div className="mt-16 sm:mt-20 max-w-4xl mx-auto relative group px-4">
             <div className="absolute -inset-2 bg-gradient-to-r from-[#0ea5e9] via-[#6366f1] to-[#8b5cf6] rounded-3xl blur-2xl opacity-20 group-hover:opacity-40 transition duration-1000"></div>
-            <div className="relative bg-[#0d1420]/80 rounded-2xl overflow-hidden border border-white/10 backdrop-blur-sm">
+            <div className="relative bg-[#0d1420]/80 rounded-2xl overflow-hidden border border-white/10 backdrop-blur-sm shadow-2xl">
               <Image
                 src="/images/smarteros_box_mockup.png"
                 alt="SmarterOS Box Mockup"
                 width={1200}
                 height={675}
                 priority
-                className="w-full h-auto object-cover hover:scale-[1.01] transition-transform duration-1000"
+                className="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-1000 ease-out"
               />
             </div>
           </div>
